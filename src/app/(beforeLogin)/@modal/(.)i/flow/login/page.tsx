@@ -3,7 +3,7 @@ export default function Page() {
   return (
     <>
       가로채기
-      <LoginModal />;
+      <LoginModal />
     </>
   );
 }
