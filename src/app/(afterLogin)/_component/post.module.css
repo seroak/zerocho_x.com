@@ -100,7 +100,7 @@
 }
 .postImageSection img {
   border-radius: 16px;
-  max-height: 510px;
+  height: 100%;
   width: 100%;
 }
 .postImageSection.twoImage {

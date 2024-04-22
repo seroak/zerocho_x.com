@@ -18,7 +18,7 @@ type Props = {
     Images: any[];
   };
 };
-
+// src/app/(afterLogin)/_component/Post.tsx 에서 시작한 파일
 export default function PostArticle({ children, post }: Props) {
   const router = useRouter();
   const onClick = () => {

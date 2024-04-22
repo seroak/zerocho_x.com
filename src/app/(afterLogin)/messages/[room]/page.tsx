@@ -1,7 +1,15 @@
 import { faker } from "@faker-js/faker";
 import style from "./chatRoom.module.css";
 import Link from "next/link";
-import BackButton from "../../_component/BackButton";
+import BackButton from "@/app/(afterLogin)/_component/BackButton";
+import cx from "classnames";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ko";
+import dayjs from "dayjs";
+
+dayjs.locale("ko");
+dayjs.extend(relativeTime);
+
 export default function chatRoom() {
   const user = {
     id: "hero",
@@ -42,8 +50,29 @@ export default function chatRoom() {
       <div className={style.list}>
         {messages.map((m) => {
           if (m.id === "zeroch0") {
-            return <div key={m.messageId} className={style.myMessage}></div>;
+            return (
+              <div
+                key={m.messageId}
+                className={cx(style.message, style.myMessage)}
+              >
+                <div className={style.content}>{m.content}</div>
+                <div className={style.date}>
+                  {dayjs(m.createdAt).format("YYYY년 MM월 DD일 A HH시 mm분")}
+                </div>
+              </div>
+            );
           }
+          return (
+            <div
+              key={m.messageId}
+              className={cx(style.message, style.yourMessage)}
+            >
+              <div className={style.content}>{m.content}</div>
+              <div className={style.date}>
+                {dayjs(m.createdAt).format("YYYY년 MM월 DD일 A HH시 mm분")}
+              </div>
+            </div>
+          );
         })}
       </div>
       <div className={style.list} />

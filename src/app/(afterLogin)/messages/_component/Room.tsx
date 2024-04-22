@@ -1,8 +1,13 @@
+"use client";
+
+import style from "@/app/(afterLogin)/messages/message.module.css";
 import { faker } from "@faker-js/faker";
 import dayjs from "dayjs";
-import style from "../message.module.css";
-import { useRouter } from "next/router";
-
+import { useRouter } from "next/navigation";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ko";
+dayjs.locale("ko");
+dayjs.extend(relativeTime);
 export function Room() {
   const router = useRouter();
   const user = {
@@ -17,7 +22,7 @@ export function Room() {
     router.push(`/messages/${user.Messages.at(-1)?.roomId}`);
   };
   return (
-    <div className={style.room}>
+    <div className={style.room} onClickCapture={onClick}>
       <div className={style.roomUserImage}>
         <img src={faker.image.avatar()} alt="" />
       </div>

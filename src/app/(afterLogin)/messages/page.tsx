@@ -1,11 +1,7 @@
 import style from "./message.module.css";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 import { Room } from "./_component/Room";
 
-dayjs.locale("ko");
-dayjs.extend(relativeTime);
 export default function Messages() {
   return (
     <main className={style.main}>
