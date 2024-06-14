@@ -1,4 +1,7 @@
 import { setupWorker } from "msw/browser";
-import { hanlers } from "./hanlers";
-const worker = setupWorker(...hanlers);
+import { handlers } from "./handlers";
+
+// This configures a Service Worker with the given request handlers.
+const worker = setupWorker(...handlers);
+
 export default worker;

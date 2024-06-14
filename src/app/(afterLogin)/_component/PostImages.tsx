@@ -66,7 +66,10 @@ export default function PostImages({ post }: Props) {
             backgroundImage: `url(${post.Images[0]?.link})`,
             backgroundSize: "cover",
           }}
-        ></Link>
+        >
+          {/* <img src={post.Images[0]?.link} alt="" /> */}
+        </Link>
+
         <div>
           <Link
             href={`/${post.User.id}/status/${post.postId}/photo/${post.Images[1].imageId}`}
@@ -74,14 +77,19 @@ export default function PostImages({ post }: Props) {
               backgroundImage: `url(${post.Images[1]?.link})`,
               backgroundSize: "cover",
             }}
-          ></Link>
+          >
+            {/* <img src={post.Images[1]?.link} alt="" /> */}
+          </Link>
+
           <Link
             href={`/${post.User.id}/status/${post.postId}/photo/${post.Images[2].imageId}`}
             style={{
               backgroundImage: `url(${post.Images[2]?.link})`,
               backgroundSize: "cover",
             }}
-          ></Link>
+          >
+            {/* <img src={post.Images[2]?.link} alt="" /> */}
+          </Link>
         </div>
       </div>
     );
